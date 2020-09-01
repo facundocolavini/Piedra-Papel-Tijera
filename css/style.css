@@ -164,13 +164,13 @@ body{
     border: 2px solid black;
     object-fit: contain;
     border-radius: 10px;
-    background-image: url("/Juego/image/papel.jfif");
+    background-image: url("../image/papel.jfif");
 }
  
 .box-img.piedra  {
     display: flex;
     background: no-repeat;
-    background-image: url("/Juego/image/piedra.jpg") ;
+    background-image: url("../image/piedra.jpg") ;
     object-fit:cover ;
     width: 250px;
     height: 190px;
@@ -188,7 +188,7 @@ body{
     object-fit: contain;
     border: 2px solid black;
     border-radius: 10px;
-    background-image: url("/Juego/image/tijera.jpg");
+    background-image: url("../image/tijera.jpg");
 }
 
  
@@ -212,7 +212,7 @@ body{
     object-fit: contain;
     border: 2px solid black;
     border-radius: 10px;
-    background-image: url("/Juego/image/tijera.jpg");
+    background-image: url("../image/tijera.jpg");
 }
 
 .box-img-machine.papel{
@@ -225,13 +225,13 @@ body{
     border: 2px solid black;
     object-fit: contain;
     border-radius: 10px;
-    background-image: url("/Juego/image/papel.jfif");
+    background-image: url("../image/papel.jfif");
 }
  
 .box-img-machine.piedra  {
     display: flex;
     background: no-repeat;
-    background-image: url("/Juego/image/piedra.jpg") ;
+    background-image: url("../image/piedra.jpg") ;
     object-fit:cover ;
     width: 250px;
     height: 190px;
