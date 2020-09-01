@@ -1,0 +1,65 @@
+.fadeIn{/*Clase de la animacion*/
+    -webkit-animation-duration:2s;/*Asegura que todos estos valores se puedan cumplir para los navegadores*/
+    animation-duration: 1s; /*Cuanto va a durar nuestra animacion*/
+    animation-fill-mode: both;/*define que se va a cumpli la regla  de los frames de ida como de regreso*/
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-name:fadeIn;
+    animation-name:fadeIn;/*esto le da el nombre a nuestra animacion*/
+}
+
+/*Keyframes*/
+
+@keyframes fadeIn{/*Aca se define la animacion que va a tener esta clase*/
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.fadeInDown{
+    -webkit-animation-duration:1s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-name:fadeInDown;
+    animation-name:fadeInDown; 
+}
+
+@keyframes fadeInDown{
+    from{
+        opacity:0;
+        -webkit-transform:translate3d(0,-100%,0);/*Nos ayuda a animar elementos en css va desde arriba hacia abajo  */
+        transform: translate3d(0,-100%,0);
+    }
+    to{
+        opacity:1;
+        -webkit-transform:translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+
+.fadeInUp{
+    -webkit-animation-duration:1s;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-name:fadeInUp;
+    animation-name:fadeInUp; 
+}
+
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        -webkit-transform:translate3d(0,100%,0);/*Nos ayuda a animar elementos en css va desde arriba hacia abajo  */
+        transform: translate3d(0,100%,0);
+    }
+    to{
+        opacity:1;
+        -webkit-transform:translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+
+/* animate__fadeInLeft */

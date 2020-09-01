@@ -1,0 +1,270 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: 'B612', sans-serif;
+}
+/*icons*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?nomsnv');
+    src:  url('fonts/icomoon.eot?nomsnv#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?nomsnv') format('truetype'),
+      url('fonts/icomoon.woff?nomsnv') format('woff'),
+      url('fonts/icomoon.svg?nomsnv#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-hand-peace-o:before {
+    content: "\e900";
+  }
+  .icon-hand-paper-o:before {
+    content: "\e901";
+  }
+  .icon-hand-grab-o:before {
+    content: "\e902";
+  }
+/*icons*/
+
+.global-container{
+    display:grid;
+    grid-template-rows: 100px 1fr ;
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    height:100vh;
+}
+
+.header{
+    display:grid;
+    grid-area: header;
+    background-color: #6f4a8e;
+    box-shadow: 1px 2px 3px;
+    grid-template-areas: "logo title";
+    grid-template-columns: 10%  1fr;
+    grid-template-rows:100px;
+   
+}
+
+.img-logo{
+    grid-area: logo;
+    display: flex;
+    height:80px;
+    width: 80px;
+    align-items: center;
+    padding-left: 20px;
+    padding: 10px;
+    justify-content: center;
+  
+    
+}
+
+.name-title{
+    display:flex;
+    grid-area:title;
+    margin:0;
+    align-items: center;
+    font-size:40px;
+    color:black;
+}
+
+.main{
+    display:grid;
+    background: #1f4068;
+    grid-template-areas: "player cpu";
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 500px;
+    padding:52px;
+  
+
+}
+
+.board-box-player{
+    display:grid;
+    background: #fbd46d;
+    grid-area: player;
+    grid-template-rows: 150px 40% 1fr;
+    grid-template-columns: 100%;
+    border-radius: 400px;
+    margin: 10px;
+}
+
+.btn{
+    display:flex;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    /* grid-template-columns: 60px 60px 60px ; */
+    width: 50px;
+    height: 50px;
+   
+}
+
+.btn button{
+    margin: 5px;
+    box-shadow: 1px 2px 3px;
+    border-radius: 120px;
+    text-decoration: none;
+    
+}
+
+.btn button:focus{
+    box-shadow: 1px 2px 3px;
+    border-radius: 120px;
+    outline: none;
+    
+}
+
+.btn i {
+    padding:50px;
+    font-size: 25px;
+    border-radius: 120px;
+   
+}
+
+.box-img figure img{
+    display: flex;
+    
+    position: absolute;
+    object-position: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 200px;
+    margin: 0 auto;
+    width: 200px;
+   
+ 
+  
+}
+.box-img.papel{
+    display: flex;
+    background: no-repeat;
+    height: 210px;
+    width: 210px;
+    margin-right: 10px;
+    margin: 0 auto;
+    border: 2px solid black;
+    object-fit: contain;
+    border-radius: 10px;
+    background-image: url("/Juego/image/papel.jfif");
+}
+ 
+.box-img.piedra  {
+    display: flex;
+    background: no-repeat;
+    background-image: url("/Juego/image/piedra.jpg") ;
+    object-fit:cover ;
+    width: 250px;
+    height: 190px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.box-img.tijera{
+    display: flex;
+    background: no-repeat;
+    height: 200px;
+    width: 220px;
+    margin: 0 auto;
+    object-fit: contain;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-image: url("/Juego/image/tijera.jpg");
+}
+
+ 
+.board-box-machine{
+    display: grid;
+    grid-area: cpu;
+    background: #848ccf;
+    grid-template-rows: 150px 1fr 1fr;
+    grid-template-columns: 100%;
+    border-radius: 400px;
+    margin: 10px;
+
+}
+
+.box-img-machine.tijera{
+    display: flex;
+    background: no-repeat;
+    height: 200px;
+    width: 220px;
+    margin: 0 auto;
+    object-fit: contain;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-image: url("/Juego/image/tijera.jpg");
+}
+
+.box-img-machine.papel{
+    display: flex;
+    background: no-repeat;
+    height: 210px;
+    width: 210px;
+    margin-right: 10px;
+    margin: 0 auto;
+    border: 2px solid black;
+    object-fit: contain;
+    border-radius: 10px;
+    background-image: url("/Juego/image/papel.jfif");
+}
+ 
+.box-img-machine.piedra  {
+    display: flex;
+    background: no-repeat;
+    background-image: url("/Juego/image/piedra.jpg") ;
+    object-fit:cover ;
+    width: 250px;
+    height: 190px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.content{
+     
+    font-size: 50px;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    margin: 0 auto;
+ 
+}
+
+.points-player{
+    padding-left: 10px;
+    font-size: 50px;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    margin: 0 auto;
+    justify-self: end;
+}
+
+.points-machine{
+    padding-left: 10px;
+    font-size: 50px;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-self: start;
+}
