@@ -1,3 +1,4 @@
+var btn = document.querySelector('.btn');
 var btn_stone = document.getElementById('btn_stone');
 var btn_paper =document.getElementById('btn_paper');
 var btn_scissors = document.getElementById('btn_scissors');
@@ -9,87 +10,113 @@ var points_machine = document.querySelector('.points-machine');
 var p_jugador= 0;
 var p_pc=0;
 var aleatorio = Math.floor(Math.random()*3);
-var contador = 0;
+var pulsado =true;
+var opc = ["piedra","papel","tijera"];
+var elementos = btn.children.id ;
 
 
+btn_paper.addEventListener('click',cambio_papel);
+btn_stone.addEventListener('click',cambio_piedra);
+btn_scissors.addEventListener('click',cambio_tijera);
+
+function validacion_botones(elementos){
+    if (elementos === btn_paper){
+        var p='papel';
+        cambio_papel();
+        validation(p,machine(btn_paper));
+        pulsado= false;
+
+    }else if (elementos === btn_stone){
+        var p='piedra';
+        cambio_piedra();
+        validation(p,machine(btn_stone));
+        pulsado=false;
+      
+    }else if (elementos === btn_scissors) {
+        var p='tijera';
+        cambio_tijera();
+        validation(p,machine(btn_scissors));
+        pulsado=false;
+    }    
+}
 
 function cambio_papel(){
-    if (contador==0 ){             
-        var j=  'papel';
-        console.log('El jugador tiro:'+ j);
-        validation(j,machine(contador));
+    if(box.classList[0] === "box-img" && box.classList[1] ==="" ){
         box.classList.add('papel');
-        contador=1;
-    }
-    else{
-        machine(contador);
-        box.classList.remove('papel');
+    }else if(box.classList[0] === "box-img" || box.classList[1] === "piedra" || box.classList[1] === "tijera" || box.classList[1] === "papel" ){
         box.classList.remove('piedra');
         box.classList.remove('tijera');
-        contador=0;
+        box.classList.add('papel');
     }
 }
  
 function cambio_piedra(){
-    if (contador== 0 ){
-        var j=  'piedra';
-        console.log('El jugador tiro:'+ j);
-        validation(j,machine(contador));
+    if(box.classList[0] === "box-img" && box.classList[1] ===""){
         box.classList.add('piedra');
-        contador=1; 
-    }
-    else{
-        machine(contador);
+    }else if(box.classList[0] === "box-img" || box.classList[1] === "piedra" || box.classList[1] === "tijera" || box.classList[1] === "papel"){
         box.classList.remove('papel');
-        box.classList.remove('piedra');
         box.classList.remove('tijera');
-        contador=0;
+        box.classList.add('piedra');
     }
 }
 
 function cambio_tijera(){
-    if (contador == 0){
-        var j=  'tijera';
-        console.log('El jugador tiro:'+ j);
-        validation(j,machine(contador));
+    if(box.classList[0] === "box-img" &&  box.classList[1] ==="" ){
         box.classList.add('tijera');
-        contador=1; 
-    }
-    else{
-        machine(contador);
+
+    }else{
         box.classList.remove('papel');
-        box.classList.remove('piedra');
         box.classList.remove('tijera');
-        contador=0;
+        box.classList.add('tijera');
     }
 }
 
-var opc = ["piedra","papel","tijera"];
 
 
-function machine(contador){
+function machine(btn){
     var i,j,k;
     for (i = opc.length; i; i--) {
         j = Math.floor(Math.random() * i);
-        k = opc[i - 1];
-        opc[i - 1] = opc[j];
-        opc[j] = k; 
-      
+        k = opc[i - 1];//ultimo valor del array la guardo en una variable
+        opc[i - 1] = opc[j]; //cambio el valor del ultimo valor del array por un valor random del array
+        opc[j] = k; //nueva pos random
+        
     }
-    if(contador == 0){
-        console.log('la maquina tiro:'+k);
+    if(box_img_machine.classList[0] ==="box-img-machine" && box_img_machine.classList[1]==="" && btn === 'btn_paper'){
         box_img_machine.classList.add(k);
-        return String(k);
-    }
-    else{
-        box_img_machine.classList.remove('papel');
+        return k;
+    }else if(box_img_machine.classList[0] === "box-img-machine" || box_img_machine.classList[1] === "piedra" || box_img_machine.classList[1] === "tijera" || box_img_machine.classList[1] === "papel" && btn === 'btn_paper' ){
         box_img_machine.classList.remove('piedra');
         box_img_machine.classList.remove('tijera');
-    }  
+        box_img_machine.classList.remove('papel');
+        box_img_machine.classList.add(k);
+        return k;
+    }
+    else if(box_img_machine.classList[0] ==="box-img-machine" && box_img_machine.classList[1]==="" && btn === 'btn_stone'){
+        box_img_machine.classList.add(k);
+    }
+    else if(box_img_machine.classList[0] === "box-img-machine" || box_img_machine.classList[1] === "piedra" || box_img_machine.classList[1] === "tijera" || box_img_machine.classList[1] === "papel" && btn === 'btn_paper' ){
+        box_img_machine.classList.remove('piedra');
+        box_img_machine.classList.remove('tijera');
+        box_img_machine.classList.remove('scissors');
+        box_img_machine.classList.add(k);
+        return k;
+    }
+    else if(box_img_machine.classList[0] ==="box-img-machine" && box_img_machine.classList[1]==="" && btn === 'btn_scissors'){
+        box_img_machine.classList.add(k);
+        return k;
+    }
+    else if(box_img_machine.classList[0] === "box-img-machine" || box_img_machine.classList[1] === "piedra" || box_img_machine.classList[1] === "tijera" || box_img_machine.classList[1] === "papel" && btn === 'btn_scissors' ){
+        box_img_machine.classList.remove('piedra');
+        box_img_machine.classList.remove('tijera');
+        box_img_machine.classList.remove('scissors');
+        box_img_machine.classList.add(k);
+        return k;
+    }
+    
 }
 
 function validation (p,pc){
-
     switch(true){
         case p === pc:
             console.log("EMPATE " +p +"|" +pc);
@@ -106,26 +133,3 @@ function validation (p,pc){
             console.log("PIERDES, TIRASTE:"+p+"|"+pc);
     }
 }
-/* function validation (){
-    if(contador ==0){
-        box.classList.add('papel');
-        contador=1;
-    }else if (contador==0){
-        box.classList.add('piedra');
-        contador=1;
-    }else if (contador==0){
-        box.classList.add('tijera');
-        contador=1;
-    }
-    else{
-        
-        box.classList.remove('papel');
-        box.classList.remove('tijera');
-        box.classList.remove('piedra');
-        contador=0;
-    }
-} */
-
-/* btn_paper.addEventListener('click',cambio_papel);
-btn_stone.addEventListener('click',cambio_piedra);
-btn_scissors.addEventListener('click',cambio_tijera); */
